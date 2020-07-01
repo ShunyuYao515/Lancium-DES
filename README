@@ -1,0 +1,12 @@
+LANCIUM Discrete Event Simulation Project
+ 
+  1. The tool we are using is Ptolemy II developed by UC Berkeley, to download it, Click the "Unix Line Endings" at:
+ 
+    https://ptolemy.berkeley.edu/ptolemyII/ptII11.0/index.htm
+    
+  2. To execute the model:
+    a). Put the model xml file together with the input file in the same proprietary directory
+    b). set $PTII to Ptolemy installation path. 
+    c). run:
+      
+       ${PTII}/bin/vergil path/to/your/model.xml
