@@ -6,7 +6,11 @@ LANCIUM Discrete Event Simulation Project
     
   2. To execute the model:
     a). Put the model xml file together with the input file in the same proprietary directory
-    b). set $PTII to Ptolemy installation path. 
-    c). run:
+    b). set $PTII to Ptolemy installation path.
+    c). Make sure to compile all the customized actor files (see 3.).
+    d). run:
       
        ${PTII}/bin/vergil path/to/your/model.xml
+
+  3. For customized actor files, move them to their corresponding directories and run the make file in those directories to compile them:
+     Synchronizer2.java:    ${PTII}/ptolemy/actor/lib/
