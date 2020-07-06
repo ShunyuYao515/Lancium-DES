@@ -8,9 +8,9 @@
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1639, 934]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8000000000000013">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0000000000000022">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{33.284730816831825, 143.04726175742582}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{-94.78465346534642, 303.85109839108907}">
     </property>
     <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
         <property name="startTime" class="ptolemy.data.expr.Parameter" value="0">
@@ -24,15 +24,8 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-765.0, 265.0]">
         </property>
     </property>
-    <entity name="DiscreteClock2" class="ptolemy.actor.lib.DiscreteClock">
-        <property name="stopTime" class="ptolemy.data.expr.Parameter" value="10">
-        </property>
-        <property name="stopTimeIsLocal" class="ptolemy.data.expr.Parameter" value="false">
-        </property>
-        <doc>Create periodic timed events.</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-605.0, 85.0]">
-        </property>
-    </entity>
+    <property name="enableBackwardTypeInference" class="ptolemy.data.expr.Parameter" value="false">
+    </property>
     <entity name="FileReader" class="ptolemy.actor.lib.io.FileReader">
         <property name="fileOrURL" class="ptolemy.data.expr.FileParameter" value="input.txt">
         </property>
@@ -50,10 +43,10 @@
         </property>
     </entity>
     <entity name="ArrayLength" class="ptolemy.actor.lib.ArrayLength">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-225.0, 135.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-250.0, 190.0]">
         </property>
     </entity>
-    <entity name="Time Stamp2" class="ptolemy.actor.lib.Ramp">
+    <entity name="Loop Counter" class="ptolemy.actor.lib.Ramp">
         <property name="init" class="ptolemy.actor.parameters.PortParameter" value="0">
         </property>
         <property name="step" class="ptolemy.actor.parameters.PortParameter" value="-1">
@@ -62,7 +55,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-55.0, 255.0]">
         </property>
     </entity>
-    <entity name="Core Count2" class="ptolemy.actor.lib.Const">
+    <entity name="0" class="ptolemy.actor.lib.Const">
         <property name="value" class="ptolemy.data.expr.Parameter" value="0">
         </property>
         <doc>Create a constant sequence.</doc>
@@ -81,7 +74,7 @@
         <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
         </property>
     </entity>
-    <entity name="Command for Current Time?2" class="ptolemy.actor.lib.BooleanSwitch">
+    <entity name="Loop Condition" class="ptolemy.actor.lib.BooleanSwitch">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[175.0, 95.0]">
         </property>
         <port name="input" class="ptolemy.actor.TypedIOPort">
@@ -194,19 +187,6 @@
         <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
         </property>
     </entity>
-    <entity name="LineWriter" class="ptolemy.actor.lib.io.LineWriter">
-        <property name="fileName" class="ptolemy.actor.parameters.FilePortParameter" value="output.txt">
-        </property>
-        <property name="append" class="ptolemy.data.expr.Parameter" value="false">
-        </property>
-        <property name="confirmOverwrite" class="ptolemy.data.expr.Parameter" value="false">
-        </property>
-        <property name="alwaysFlush" class="ptolemy.data.expr.Parameter" value="true">
-        </property>
-        <doc>Write the value of a string token, one per line, to a text file.</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[665.0, 500.0]">
-        </property>
-    </entity>
     <entity name="# of Core Needed" class="ptolemy.actor.lib.ArrayElement">
         <property name="index" class="ptolemy.actor.parameters.PortParameter" value="2">
         </property>
@@ -294,41 +274,17 @@
         <property name="trimSpaces" class="ptolemy.data.expr.Parameter" value="true">
         </property>
         <doc>Split a string into an array of strings</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[235.0, -25.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[290.0, -25.0]">
         </property>
     </entity>
     <entity name="ArrayElement2" class="ptolemy.actor.lib.ArrayElement">
         <property name="index" class="ptolemy.actor.parameters.PortParameter" value="0">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[115.0, -25.0]">
-        </property>
-    </entity>
-    <entity name="Display" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={337, 296, 535, 310}, maximized=false}">
-        </property>
-        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[535, 257]">
-        </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[435.0, 330.0]">
-        </property>
-    </entity>
-    <entity name="Display2" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={309, 465, 535, 235}, maximized=false}">
-        </property>
-        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[535, 182]">
-        </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-40.0, -90.0]">
-        </property>
-    </entity>
-    <entity name="Display3" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1329, 441, 535, 235}, maximized=false}">
-        </property>
-        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[535, 182]">
-        </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-35.0, 75.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[110.0, -25.0]">
         </property>
     </entity>
     <entity name="AddSubtract" class="ptolemy.actor.lib.AddSubtract">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-75.0, 5.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-75.0, 0.0]">
         </property>
     </entity>
     <entity name="Const" class="ptolemy.actor.lib.Const">
@@ -342,10 +298,44 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-165.0, 15.0]">
         </property>
     </entity>
+    <entity name="Discard3" class="ptolemy.actor.lib.Discard">
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[260.0, 125.0]">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
+            </property>
+        </port>
+    </entity>
+    <entity name="Display2" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={67, 25, 1853, 1055}, maximized=true}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[1853, 1002]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[85.0, -110.0]">
+        </property>
+    </entity>
+    <entity name="Synchronizer" class="ptolemy.actor.lib.Synchronizer2">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-5.0, -25.0]">
+        </property>
+        <port name="input2" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="int">
+            </property>
+        </port>
+        <port name="output2" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="int">
+            </property>
+        </port>
+    </entity>
     <entity name="Repeat" class="ptolemy.domains.sdf.lib.Repeat">
         <property name="numberOfTimes" class="ptolemy.actor.parameters.PortParameter" value="2">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-200.0, -35.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-225.0, -100.0]">
         </property>
         <port name="input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -363,18 +353,59 @@
             </property>
         </port>
     </entity>
-    <entity name="Synchronizer" class="ptolemy.actor.lib.Synchronizer">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[25.0, -35.0]">
+    <entity name="Display3" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={67, 25, 1853, 1055}, maximized=true}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[1853, 1002]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[560.0, 115.0]">
         </property>
     </entity>
-    <entity name="Discard3" class="ptolemy.actor.lib.Discard">
-        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+    <entity name="Synchronizer2" class="ptolemy.actor.lib.Synchronizer2">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-305.0, 495.0]">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[280.0, 145.0]">
+        <port name="input2" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="int">
+            </property>
+        </port>
+        <port name="output2" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="int">
+            </property>
+        </port>
+    </entity>
+    <entity name="Display4" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={337, 296, 531, 310}, maximized=false}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[531, 257]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[657.25, 478.75]">
+        </property>
+    </entity>
+    <entity name="CountTrues" class="ptolemy.domains.sdf.lib.CountTrues">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{-735, 380}">
+        </property>
+    </entity>
+    <entity name="Repeat2" class="ptolemy.domains.sdf.lib.Repeat">
+        <property name="numberOfTimes" class="ptolemy.actor.parameters.PortParameter" value="2">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{-420.0, 505.0}">
         </property>
         <port name="input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
-            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="numberOfTimes" class="ptolemy.actor.parameters.ParameterPort">
+            <property name="input"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
             </property>
         </port>
@@ -382,7 +413,7 @@
     <relation name="relation19" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation18" class="ptolemy.actor.TypedIORelation">
-        <vertex name="vertex1" value="[-155.0, 135.0]">
+        <vertex name="vertex1" value="[-160.0, 190.0]">
         </vertex>
     </relation>
     <relation name="relation21" class="ptolemy.actor.TypedIORelation">
@@ -392,10 +423,6 @@
     <relation name="relation23" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation22" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation24" class="ptolemy.actor.TypedIORelation">
-        <vertex name="vertex1" value="[-510.0, 85.0]">
-        </vertex>
     </relation>
     <relation name="relation25" class="ptolemy.actor.TypedIORelation">
     </relation>
@@ -407,13 +434,9 @@
     </relation>
     <relation name="relation" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation10" class="ptolemy.actor.TypedIORelation">
-    </relation>
     <relation name="relation14" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation16" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation8" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation9" class="ptolemy.actor.TypedIORelation">
     </relation>
@@ -440,48 +463,68 @@
         </vertex>
     </relation>
     <relation name="relation17" class="ptolemy.actor.TypedIORelation">
-        <vertex name="vertex1" value="[-315.0, 135.0]">
+        <vertex name="vertex1" value="[-305.0, 135.0]">
         </vertex>
     </relation>
     <relation name="relation26" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation31" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation20" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation33" class="ptolemy.actor.TypedIORelation">
-    </relation>
     <relation name="relation30" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation5" class="ptolemy.actor.TypedIORelation">
-        <vertex name="vertex1" value="[350.0, 330.0]">
+        <vertex name="vertex1" value="[340.0, 370.0]">
         </vertex>
     </relation>
     <relation name="relation29" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[45.0, -35.0]">
+        </vertex>
+    </relation>
+    <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[30.0, -15.0]">
+        </vertex>
+    </relation>
+    <relation name="relation20" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[-50.0, -60.0]">
+        </vertex>
     </relation>
     <relation name="relation32" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[-35.0, 0.0]">
+        </vertex>
     </relation>
-    <link port="DiscreteClock2.output" relation="relation24"/>
-    <link port="DiscreteClock2.trigger" relation="relation2"/>
+    <relation name="relation24" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[-20.0, 550.0]">
+        </vertex>
+    </relation>
+    <relation name="relation8" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="{-225.0, 390.0}">
+        </vertex>
+    </relation>
+    <relation name="relation10" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation33" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation28" class="ptolemy.actor.TypedIORelation">
+    </relation>
     <link port="FileReader.output" relation="relation19"/>
-    <link port="FileReader.trigger" relation="relation24"/>
+    <link port="FileReader.trigger" relation="relation2"/>
     <link port="StringSplit2.input" relation="relation19"/>
     <link port="StringSplit2.output" relation="relation17"/>
     <link port="ArrayLength.input" relation="relation17"/>
     <link port="ArrayLength.output" relation="relation18"/>
-    <link port="Time Stamp2.output" relation="relation21"/>
-    <link port="Time Stamp2.trigger" relation="relation18"/>
-    <link port="Time Stamp2.trigger" relation="relation25"/>
-    <link port="Time Stamp2.init" relation="relation18"/>
-    <link port="Core Count2.output" relation="relation23"/>
-    <link port="Core Count2.trigger" relation="relation21"/>
+    <link port="Loop Counter.output" relation="relation21"/>
+    <link port="Loop Counter.trigger" relation="relation18"/>
+    <link port="Loop Counter.trigger" relation="relation25"/>
+    <link port="Loop Counter.init" relation="relation18"/>
+    <link port="0.output" relation="relation23"/>
+    <link port="0.trigger" relation="relation21"/>
     <link port="Equals2.input" relation="relation23"/>
     <link port="Equals2.input" relation="relation21"/>
     <link port="Equals2.output" relation="relation22"/>
-    <link port="Command for Current Time?2.input" relation="relation21"/>
-    <link port="Command for Current Time?2.control" relation="relation22"/>
-    <link port="Command for Current Time?2.trueOutput" relation="relation30"/>
-    <link port="Command for Current Time?2.falseOutput" relation="relation27"/>
+    <link port="Loop Condition.input" relation="relation21"/>
+    <link port="Loop Condition.control" relation="relation22"/>
+    <link port="Loop Condition.trueOutput" relation="relation30"/>
+    <link port="Loop Condition.falseOutput" relation="relation27"/>
     <link port="TimeDelay2.input" relation="relation27"/>
     <link port="TimeDelay2.output" relation="relation25"/>
     <link port="Core Count.output" relation="relation13"/>
@@ -492,21 +535,20 @@
     <link port="Comparator.output" relation="relation14"/>
     <link port="Less than Total # of Cores?.input" relation="relation4"/>
     <link port="Less than Total # of Cores?.control" relation="relation14"/>
-    <link port="Less than Total # of Cores?.trueOutput" relation="relation8"/>
+    <link port="Less than Total # of Cores?.trueOutput" relation="relation33"/>
     <link port="Less than Total # of Cores?.falseOutput" relation="relation16"/>
-    <link port="Equals.input" relation="relation7"/>
     <link port="Equals.input" relation="relation9"/>
-    <link port="Equals.output" relation="relation10"/>
-    <link port="LineWriter.input" relation="relation8"/>
+    <link port="Equals.input" relation="relation10"/>
+    <link port="Equals.output" relation="relation24"/>
     <link port="# of Core Needed.input" relation="relation11"/>
     <link port="# of Core Needed.output" relation="relation12"/>
     <link port="StringToInt2.input" relation="relation12"/>
     <link port="StringToInt2.output" relation="relation"/>
-    <link port="ArrayElement.input" relation="relation5"/>
+    <link port="ArrayElement.input" relation="relation8"/>
     <link port="ArrayElement.output" relation="relation3"/>
     <link port="Discard.input" relation="relation15"/>
-    <link port="Command for Current Time?.input" relation="relation5"/>
-    <link port="Command for Current Time?.control" relation="relation10"/>
+    <link port="Command for Current Time?.input" relation="relation8"/>
+    <link port="Command for Current Time?.control" relation="relation24"/>
     <link port="Command for Current Time?.trueOutput" relation="relation11"/>
     <link port="Command for Current Time?.falseOutput" relation="relation15"/>
     <link port="StringToInt.input" relation="relation3"/>
@@ -518,22 +560,28 @@
     <link port="Time Stamp.trigger" relation="relation2"/>
     <link port="StringSplit3.input" relation="relation26"/>
     <link port="StringSplit3.output" relation="relation5"/>
-    <link port="ArrayElement2.input" relation="relation33"/>
+    <link port="ArrayElement2.input" relation="relation29"/>
     <link port="ArrayElement2.output" relation="relation26"/>
-    <link port="ArrayElement2.index" relation="relation32"/>
-    <link port="Display.input" relation="relation5"/>
-    <link port="Display3.input" relation="relation27"/>
+    <link port="ArrayElement2.index" relation="relation6"/>
     <link port="AddSubtract.plus" relation="relation27"/>
     <link port="AddSubtract.minus" relation="relation31"/>
-    <link port="AddSubtract.output" relation="relation29"/>
+    <link port="AddSubtract.output" relation="relation32"/>
     <link port="Const.output" relation="relation31"/>
     <link port="Const.trigger" relation="relation27"/>
+    <link port="Discard3.input" relation="relation30"/>
+    <link port="Synchronizer.input" relation="relation20"/>
+    <link port="Synchronizer.output" relation="relation29"/>
+    <link port="Synchronizer.input2" relation="relation32"/>
+    <link port="Synchronizer.output2" relation="relation6"/>
     <link port="Repeat.input" relation="relation17"/>
     <link port="Repeat.output" relation="relation20"/>
     <link port="Repeat.numberOfTimes" relation="relation18"/>
-    <link port="Synchronizer.input" relation="relation20"/>
-    <link port="Synchronizer.input" relation="relation29"/>
-    <link port="Synchronizer.output" relation="relation33"/>
-    <link port="Synchronizer.output" relation="relation32"/>
-    <link port="Discard3.input" relation="relation30"/>
+    <link port="Synchronizer2.input" relation="relation5"/>
+    <link port="Synchronizer2.output" relation="relation8"/>
+    <link port="Synchronizer2.input2" relation="relation28"/>
+    <link port="Synchronizer2.output2" relation="relation10"/>
+    <link port="Display4.input" relation="relation33"/>
+    <link port="Repeat2.input" relation="relation7"/>
+    <link port="Repeat2.output" relation="relation28"/>
+    <link port="Repeat2.numberOfTimes" relation="relation18"/>
 </entity>
