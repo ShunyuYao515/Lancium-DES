@@ -1,0 +1,504 @@
+    <entity name="Accumulator SUBCLUSTER_ID" class="ptolemy.actor.lib.Accumulator">
+        <property name="init" class="ptolemy.data.expr.Parameter" value="SUBCLUSTER_CPU">
+        </property>
+        <property name="lowerBound" class="ptolemy.data.expr.Parameter" value="0">
+        </property>
+        <property name="upperBound" class="ptolemy.data.expr.Parameter" value="SUBCLUSTER_CPU">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[ACC_X, ACC_Y]">
+        </property>
+        <port name="reset" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="Const Zero Querying SUBCLUSTER_ID" class="ptolemy.actor.lib.Const">
+        <property name="value" class="ptolemy.data.expr.Parameter" value="0">
+        </property>
+        <doc>Create a constant sequence.</doc>
+        <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+            </property>
+            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[CZQ_X, CZQ_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="trigger" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="Output Port SUBCLUSTER_ID" class="ptolemy.actor.lib.BooleanSwitch">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[OP_X, OP_Y]">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="control" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="trueOutput" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="falseOutput" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="Query? SUBCLUSTER_ID" class="ptolemy.actor.lib.logic.Equals">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[QRY_X, QRY_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="false">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="Const Zero Querying2 SUBCLUSTER_ID" class="ptolemy.actor.lib.Const">
+        <property name="value" class="ptolemy.data.expr.Parameter" value="0">
+        </property>
+        <doc>Create a constant sequence.</doc>
+        <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+            </property>
+            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[CZQ2_X, CZQ2_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="trigger" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="Command Core Required SUBCLUSTER_ID" class="ptolemy.actor.lib.ArrayElement">
+        <property name="index" class="ptolemy.actor.parameters.PortParameter" value="2">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[CCR_X, CCR_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="index" class="ptolemy.actor.parameters.ParameterPort">
+            <property name="input"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="Comparator SUBCLUSTER_ID" class="ptolemy.actor.lib.logic.Comparator">
+        <property name="comparison" class="ptolemy.kernel.util.StringAttribute" value="&gt;=">
+            <property name="style" class="ptolemy.actor.gui.style.ChoiceStyle">
+                <property name="gt" class="ptolemy.kernel.util.StringAttribute" value="&gt;">
+                </property>
+                <property name="ge" class="ptolemy.kernel.util.StringAttribute" value="&gt;=">
+                </property>
+                <property name="lt" class="ptolemy.kernel.util.StringAttribute" value="&lt;">
+                </property>
+                <property name="le" class="ptolemy.kernel.util.StringAttribute" value="&lt;=">
+                </property>
+                <property name="eq" class="ptolemy.kernel.util.StringAttribute" value="==">
+                </property>
+            </property>
+        </property>
+        <property name="tolerance" class="ptolemy.data.expr.Parameter" value="0">
+        </property>
+        <property name="_icon" class="ptolemy.vergil.icon.AttributeValueIcon">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="comparison">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[COMP_X, COMP_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+    </entity>
+    <entity name="Less than Cores Left? SUBCLUSTER_ID" class="ptolemy.actor.lib.BooleanSwitch">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[LTCL_X, LTCL_Y]">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="control" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="trueOutput" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="falseOutput" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="Time Delay SUBCLUSTER_ID" class="ptolemy.actor.lib.TimeDelay">
+        <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="0">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[TD_X, TD_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+        </port>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
+            </property>
+        </port>
+    </entity>
+    <entity name="Command Core Required2 SUBCLUSTER_ID" class="ptolemy.actor.lib.ArrayElement">
+        <property name="index" class="ptolemy.actor.parameters.PortParameter" value="2">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[CCR2_X, CCR2_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+        </port>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
+            </property>
+        </port>
+        <port name="index" class="ptolemy.actor.parameters.ParameterPort">
+            <property name="input"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+        </port>
+    </entity>
+    <entity name="AddSubtract2 SUBCLUSTER_ID" class="ptolemy.actor.lib.AddSubtract">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[AS2_X, AS2_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="plus" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+        </port>
+        <port name="minus" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+        </port>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
+            </property>
+        </port>
+    </entity>
+    <entity name="Time Delay3 SUBCLUSTER_ID" class="ptolemy.actor.lib.TimeDelay">
+        <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="0">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[TD3_X, TD3_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
+            </property>
+        </port>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+        </port>
+        <port name="delay" class="ptolemy.actor.parameters.ParameterPort">
+            <property name="input"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
+            </property>
+        </port>
+    </entity>
+    <entity name="Command Time Required SUBCLUSTER_ID" class="ptolemy.actor.lib.ArrayElement">
+        <property name="index" class="ptolemy.actor.parameters.PortParameter" value="3">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[CTR_X, CTR_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="index" class="ptolemy.actor.parameters.ParameterPort">
+            <property name="input"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="StringToInt3 SUBCLUSTER_ID" class="ptolemy.actor.lib.conversions.StringToInt">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[STI3_X, STI3_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+    </entity>
+    <entity name="StringToInt4 SUBCLUSTER_ID" class="ptolemy.actor.lib.conversions.StringToInt">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[STI4_X, STI4_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+    </entity>
+    <entity name="StringToInt5 SUBCLUSTER_ID" class="ptolemy.actor.lib.conversions.StringToInt">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[STI5_X, STI5_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+    </entity>
+    <entity name="Const Zero SUBCLUSTER_ID" class="ptolemy.actor.lib.Const">
+        <property name="value" class="ptolemy.data.expr.Parameter" value="0">
+        </property>
+        <doc>Create a constant sequence.</doc>
+        <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+            </property>
+            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[CZ_X, CZ_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
+            </property>
+        </port>
+        <port name="trigger" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+        </port>
+    </entity>
+    <entity name="StringToInt6 SUBCLUSTER_ID" class="ptolemy.actor.lib.conversions.StringToInt">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[STI6_X, STI6_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+        </port>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
+            </property>
+        </port>
+    </entity>
+    <entity name="Display2 SUBCLUSTER_ID" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={934, 565, 531, 310}, maximized=false}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[531, 257]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[DIS2_X, DIS2_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
+            </property>
+        </port>
+    </entity>
+    <entity name="Display3 SUBCLUSTER_ID" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1371, 237, 531, 310}, maximized=false}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[531, 257]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[DIS3_X, DIS3_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
+            </property>
+        </port>
+    </entity>
+    <entity name="Display4 SUBCLUSTER_ID" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1257, 119, 531, 310}, maximized=false}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[531, 257]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[DIS4_X, DIS4_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
+            </property>
+        </port>
+    </entity>
+    <entity name="Queue SUBCLUSTER_ID" class="ptolemy.domains.de.lib.Queue">
+        <property name="capacity" class="ptolemy.data.expr.Parameter" value="100">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[QUE_X, QUE_Y]">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="trigger" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="size" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+    </entity>
+    <relation name="relation33_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation36_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[R36V1_X, R36V1_Y]">
+        </vertex>
+    </relation>
+    <relation name="relation34_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation35_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation39_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[R39V1_X, R39V1_Y]">
+        </vertex>
+    </relation>
+    <relation name="relation38_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[R38V1_X, R38V1_Y]">
+        </vertex>
+    </relation>
+    <relation name="relation24_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation43_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation44_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[R44V1_X, R44V1_Y]">
+        </vertex>
+    </relation>
+    <relation name="relation46_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[R46V1_X, R46V1_Y]">
+        </vertex>
+    </relation>
+    <relation name="relation48_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation4_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation49_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation50_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation45_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation51_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[R51V1_X, R51V1_Y]">
+        </vertex>
+    </relation>
+    <relation name="relation52_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation42_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation37_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <link port="Accumulator SUBCLUSTER_ID.input" relation="relation36_SUBCLUSTER_ID"/>
+    <link port="Accumulator SUBCLUSTER_ID.output" relation="relation33_SUBCLUSTER_ID"/>
+    <link port="Const Zero Querying SUBCLUSTER_ID.output" relation="relation34_SUBCLUSTER_ID"/>
+    <link port="Const Zero Querying SUBCLUSTER_ID.trigger" relation="relation36_SUBCLUSTER_ID"/>
+    <link port="Output Port SUBCLUSTER_ID.input" relation="relation33_SUBCLUSTER_ID"/>
+    <link port="Output Port SUBCLUSTER_ID.control" relation="relation35_SUBCLUSTER_ID"/>
+    <link port="Output Port SUBCLUSTER_ID.trueOutput" relation="relation38_SUBCLUSTER_ID"/>
+    <link port="Output Port SUBCLUSTER_ID.falseOutput" relation="relation37_SUBCLUSTER_ID"/>
+    <link port="Query? SUBCLUSTER_ID.input" relation="relation34_SUBCLUSTER_ID"/>
+    <link port="Query? SUBCLUSTER_ID.input" relation="relation36_SUBCLUSTER_ID"/>
+    <link port="Query? SUBCLUSTER_ID.output" relation="relation35_SUBCLUSTER_ID"/>
+    <link port="Const Zero Querying2 SUBCLUSTER_ID.output" relation="relation36_SUBCLUSTER_ID"/>
+    <link port="Const Zero Querying2 SUBCLUSTER_ID.trigger" relation="relation39_SUBCLUSTER_ID"/>
+    <link port="Command Core Required SUBCLUSTER_ID.input" relation="relation39_SUBCLUSTER_ID"/>
+    <link port="Command Core Required SUBCLUSTER_ID.output" relation="relation48_SUBCLUSTER_ID"/>
+    <link port="Comparator SUBCLUSTER_ID.left" relation="relation49_SUBCLUSTER_ID"/>
+    <link port="Comparator SUBCLUSTER_ID.right" relation="relation4_SUBCLUSTER_ID"/>
+    <link port="Comparator SUBCLUSTER_ID.output" relation="relation24_SUBCLUSTER_ID"/>
+    <link port="Less than Cores Left? SUBCLUSTER_ID.input" relation="relation39_SUBCLUSTER_ID"/>
+    <link port="Less than Cores Left? SUBCLUSTER_ID.control" relation="relation24_SUBCLUSTER_ID"/>
+    <link port="Less than Cores Left? SUBCLUSTER_ID.trueOutput" relation="relation46_SUBCLUSTER_ID"/>
+    <link port="Less than Cores Left? SUBCLUSTER_ID.falseOutput" relation="relation51_SUBCLUSTER_ID"/>
+    <link port="Time Delay SUBCLUSTER_ID.input" relation="relation46_SUBCLUSTER_ID"/>
+    <link port="Time Delay SUBCLUSTER_ID.output" relation="relation43_SUBCLUSTER_ID"/>
+    <link port="Command Core Required2 SUBCLUSTER_ID.input" relation="relation43_SUBCLUSTER_ID"/>
+    <link port="Command Core Required2 SUBCLUSTER_ID.output" relation="relation52_SUBCLUSTER_ID"/>
+    <link port="AddSubtract2 SUBCLUSTER_ID.plus" relation="relation45_SUBCLUSTER_ID"/>
+    <link port="AddSubtract2 SUBCLUSTER_ID.minus" relation="relation44_SUBCLUSTER_ID"/>
+    <link port="AddSubtract2 SUBCLUSTER_ID.output" relation="relation36_SUBCLUSTER_ID"/>
+    <link port="Time Delay3 SUBCLUSTER_ID.input" relation="relation46_SUBCLUSTER_ID"/>
+    <link port="Time Delay3 SUBCLUSTER_ID.output" relation="relation_SUBCLUSTER_ID"/>
+    <link port="Time Delay3 SUBCLUSTER_ID.delay" relation="relation42_SUBCLUSTER_ID"/>
+    <link port="Command Time Required SUBCLUSTER_ID.input" relation="relation46_SUBCLUSTER_ID"/>
+    <link port="Command Time Required SUBCLUSTER_ID.output" relation="relation50_SUBCLUSTER_ID"/>
+    <link port="StringToInt3 SUBCLUSTER_ID.input" relation="relation48_SUBCLUSTER_ID"/>
+    <link port="StringToInt3 SUBCLUSTER_ID.output" relation="relation4_SUBCLUSTER_ID"/>
+    <link port="StringToInt4 SUBCLUSTER_ID.input" relation="relation38_SUBCLUSTER_ID"/>
+    <link port="StringToInt4 SUBCLUSTER_ID.output" relation="relation49_SUBCLUSTER_ID"/>
+    <link port="StringToInt5 SUBCLUSTER_ID.input" relation="relation50_SUBCLUSTER_ID"/>
+    <link port="StringToInt5 SUBCLUSTER_ID.output" relation="relation42_SUBCLUSTER_ID"/>
+    <link port="Const Zero SUBCLUSTER_ID.output" relation="relation45_SUBCLUSTER_ID"/>
+    <link port="Const Zero SUBCLUSTER_ID.trigger" relation="relation44_SUBCLUSTER_ID"/>
+    <link port="StringToInt6 SUBCLUSTER_ID.input" relation="relation52_SUBCLUSTER_ID"/>
+    <link port="StringToInt6 SUBCLUSTER_ID.output" relation="relation44_SUBCLUSTER_ID"/>
+    <link port="Display2 SUBCLUSTER_ID.input" relation="relation37_SUBCLUSTER_ID"/>
+    <link port="Display3 SUBCLUSTER_ID.input" relation="relation_SUBCLUSTER_ID"/>
+    <link port="Display4 SUBCLUSTER_ID.input" relation="relation51_SUBCLUSTER_ID"/>
+    <link port="Queue SUBCLUSTER_ID.input" relation="relation51_SUBCLUSTER_ID"/>
