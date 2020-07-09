@@ -14,3 +14,12 @@ LANCIUM Discrete Event Simulation Project
 
   3. For customized actor files, move them to their corresponding directories and run the make file in those directories to compile them:
      Synchronizer2.java:    ${PTII}/ptolemy/actor/lib/
+
+  4. Subcluster Parameterization Update
+     Currently an intermediate representation of configuration is given to temporarily take the place of JSON configurations.
+     a). Put a "configT" file (See configT example) under the same directory with model_gen.sh.
+     b). Run:
+      
+         ./model_gen.xml
+         
+     c). You'll see the generated model as Lancium_model.xml.
