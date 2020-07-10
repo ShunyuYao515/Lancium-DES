@@ -1,4 +1,23 @@
 #!/bin/bash
+CSID_X=905
+CSID_Y=490
+STI_X=965
+STI_Y=490
+SID_X=1025
+SID_Y=505
+CS_X=1090
+CS_Y=490
+SFP_X=1140
+SFP_Y=465
+DISCARD_X=1175
+DISCARD_Y=505
+R2V1_X=860
+R2V1_Y=465
+R6V1_X=995
+R6V1_Y=490
+
+CF_X=1125
+CF_Y=455
 ACC_X=1287
 ACC_Y=177
 CZQ_X=1282
@@ -73,6 +92,14 @@ do
 	fi
 	sed -i "s|SUBCLUSTER_ID|${c}|g" Lancium_model.xml
 
+	sed -i "s|CS_X|${CS_X}|g" Lancium_model.xml
+	sed -i "s|STI_X|${STI_X}|g" Lancium_model.xml
+	sed -i "s|CSID_X|${CSID_X}|g" Lancium_model.xml
+	sed -i "s|SID_X|${SID_X}|g" Lancium_model.xml
+	sed -i "s|SFP_X|${SFP_X}|g" Lancium_model.xml
+	sed -i "s|DISCARD_X|${DISCARD_X}|g" Lancium_model.xml
+
+	sed -i "s|CF_X|${CF_X}|g" Lancium_model.xml
 	sed -i "s|ACC_X|${ACC_X}|g" Lancium_model.xml
 	sed -i "s|CZQ_X|${CZQ_X}|g" Lancium_model.xml
 	sed -i "s|OP_X|${OP_X}|g" Lancium_model.xml
@@ -101,7 +128,17 @@ do
 	sed -i "s|R44V1_X|${R44V1_X}|g" Lancium_model.xml 
 	sed -i "s|R46V1_X|${R46V1_X}|g" Lancium_model.xml 
 	sed -i "s|R51V1_X|${R51V1_X}|g" Lancium_model.xml
+	sed -i "s|R2V1_X|${R2V1_X}|g" Lancium_model.xml
+        sed -i "s|R6V1_X|${R6V1_X}|g" Lancium_model.xml
 
+	sed -i "s|CS_Y|$(expr ${CS_Y} - $(expr $c \* 400))|g" Lancium_model.xml
+	sed -i "s|CSID_Y|$(expr ${CSID_Y} - $(expr $c \* 400))|g" Lancium_model.xml
+	sed -i "s|SID_Y|$(expr ${SID_Y} - $(expr $c \* 400))|g" Lancium_model.xml
+	sed -i "s|SFP_Y|$(expr ${SFP_Y} - $(expr $c \* 400))|g" Lancium_model.xml
+	sed -i "s|STI_Y|$(expr ${STI_Y} - $(expr $c \* 400))|g" Lancium_model.xml
+	sed -i "s|DISCARD_Y|$(expr ${DISCARD_Y} - $(expr $c \* 400))|g" Lancium_model.xml
+
+	sed -i "s|CF_Y|$(expr ${CF_Y} - $(expr $c \* 400))|g" Lancium_model.xml
 	sed -i "s|ACC_Y|$(expr ${ACC_Y} - $(expr $c \* 400))|g" Lancium_model.xml
 	sed -i "s|CZQ_Y|$(expr ${CZQ_Y} - $(expr $c \* 400))|g" Lancium_model.xml
 	sed -i "s|OP_Y|$(expr ${OP_Y} - $(expr $c \* 400))|g" Lancium_model.xml
@@ -130,7 +167,8 @@ do
 	sed -i "s|R44V1_Y|$(expr ${R44V1_Y} - $(expr $c \* 400))|g" Lancium_model.xml
 	sed -i "s|R46V1_Y|$(expr ${R46V1_Y} - $(expr $c \* 400))|g" Lancium_model.xml
 	sed -i "s|R51V1_Y|$(expr ${R51V1_Y} - $(expr $c \* 400))|g" Lancium_model.xml	
-
+        sed -i "s|R2V1_Y|$(expr ${R2V1_Y} - $(expr $c \* 400))|g" Lancium_model.xml
+	sed -i "s|R6V1_Y|$(expr ${R6V1_Y} - $(expr $c \* 400))|g" Lancium_model.xml
 	
 	SUBCLUSTER_CONFIG=$(sed "${c}!d" configT)	
 	col_c=1

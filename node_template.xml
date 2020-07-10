@@ -1,3 +1,132 @@
+    <entity name="Command Subcluster ID SUBCLUSTER_ID" class="ptolemy.actor.lib.ArrayElement">
+        <display name="Command Subcluster ID "/>
+        <property name="index" class="ptolemy.actor.parameters.PortParameter" value="4">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[CSID_X, CSID_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="index" class="ptolemy.actor.parameters.ParameterPort">
+            <property name="input"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="StringToInt SUBCLUSTER_ID" class="ptolemy.actor.lib.conversions.StringToInt">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[STI_X, STI_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+    </entity>
+    <entity name="Subcluster ID SUBCLUSTER_ID" class="ptolemy.actor.lib.Const">
+        <property name="value" class="ptolemy.data.expr.Parameter" value="SUBCLUSTER_ID">
+        </property>
+        <doc>Create a constant sequence.</doc>
+        <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+            </property>
+            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[SID_X, SID_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="trigger" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="Command for Subcluster SUBCLUSTER_ID" class="ptolemy.actor.lib.logic.Equals">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[CS_X, CS_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="false">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="Subcluster Filter Port SUBCLUSTER_ID" class="ptolemy.actor.lib.BooleanSwitch">
+        <display name=" Subcluster Filter Port SUBCLUSTER_ID"/>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[SFP_X, SFP_Y]">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="control" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="trueOutput" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="falseOutput" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="Discard SUBCLUSTER_ID" class="ptolemy.actor.lib.Discard">
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[DISCARD_X, DISCARD_Y]">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
+            </property>
+        </port>
+    </entity>
+    <relation name="relation2_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[R2V1_X, R2V1_Y]">
+        </vertex>
+    </relation>
+    <relation name="relation3_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation5_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation7_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation8_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation6_SUBCLUSTER_ID" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[R6V1_X, R6V1_Y]">
+        </vertex>
+    </relation>
+    <link port="StringToInt SUBCLUSTER_ID.input" relation="relation8_SUBCLUSTER_ID"/>
+    <link port="StringToInt SUBCLUSTER_ID.output" relation="relation6_SUBCLUSTER_ID"/>
+    <link port="Command Subcluster ID SUBCLUSTER_ID.input" relation="relation2_SUBCLUSTER_ID"/>
+    <link port="Command Subcluster ID SUBCLUSTER_ID.output" relation="relation8_SUBCLUSTER_ID"/>
+    <link port="Subcluster ID SUBCLUSTER_ID.output" relation="relation3_SUBCLUSTER_ID"/>
+    <link port="Subcluster ID SUBCLUSTER_ID.trigger" relation="relation6_SUBCLUSTER_ID"/>
+    <link port="Command for Subcluster SUBCLUSTER_ID.input" relation="relation6_SUBCLUSTER_ID"/>
+    <link port="Command for Subcluster SUBCLUSTER_ID.input" relation="relation3_SUBCLUSTER_ID"/>
+    <link port="Command for Subcluster SUBCLUSTER_ID.output" relation="relation5_SUBCLUSTER_ID"/>
+    <link port="Subcluster Filter Port SUBCLUSTER_ID.input" relation="relation2_SUBCLUSTER_ID"/>
+    <link port="Subcluster Filter Port SUBCLUSTER_ID.control" relation="relation5_SUBCLUSTER_ID"/>
+    <link port="Subcluster Filter Port SUBCLUSTER_ID.trueOutput" relation="relation39_SUBCLUSTER_ID"/>
+    <link port="Subcluster Filter Port SUBCLUSTER_ID.falseOutput" relation="relation7_SUBCLUSTER_ID"/>
+    <link port="Discard SUBCLUSTER_ID.input" relation="relation7_SUBCLUSTER_ID"/>
+    <link relation1="relation4" relation2="relation2_SUBCLUSTER_ID"/>
+
     <entity name="Accumulator SUBCLUSTER_ID" class="ptolemy.actor.lib.Accumulator">
         <property name="init" class="ptolemy.data.expr.Parameter" value="SUBCLUSTER_CPU">
         </property>
